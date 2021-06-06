@@ -492,13 +492,11 @@ section {
 #col {
   float: left;
   margin: 0% 6%;
-  max-height: 25em;
+  height: 1px;
   padding: 3%;
-  position: relative;
+  position:relative;
   left: 70%; 
-  bottom: 520px;
-  vertical-align: middle;
-  width: 55%;
+  bottom: 530px;
 }
 
 /*--------------------------------------------------------------
