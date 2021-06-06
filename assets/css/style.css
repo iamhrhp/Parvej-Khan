@@ -482,19 +482,23 @@ section {
   border-radius: 50px;
  }
 
-.row.skills-content .col-log-5 {
+.row.skills-content .col-log-6 {
   position: sticky;
   padding: 0;
   top: 50px;
   left: 50%; 
 }
 
-.col {
-  padding: 0 0 20px 20px;
+#col {
+  float: left;
+  margin: 0% 6%;
+  max-height: 25em;
+  padding: 3%;
   position: relative;
-  left: 1550px;
-  bottom: 470px;
-  
+  left: 70%; 
+  bottom: 520px;
+  vertical-align: middle;
+  width: 55%;
 }
 
 /*--------------------------------------------------------------
