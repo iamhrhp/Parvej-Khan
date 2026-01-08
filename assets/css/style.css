@@ -623,6 +623,7 @@ section {
   max-width: 100%;
   display: block;
   box-sizing: border-box;
+  height: 400px;
 }
 
 @media (min-width: 1200px) {
@@ -667,7 +668,7 @@ section {
   text-align: center;
   /* background: rgba(20, 157, 221, 0.75); */
   background: rgba(20, 157, 221, 0.95);
-  transition: 0.3s;
+  transition: all 0.4s ease-in-out;
   width: auto;
   min-width: 80px;
   padding: 6px 12px;
@@ -678,11 +679,15 @@ section {
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.2;
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
   /* background: rgba(20, 157, 221, 0.95); */
   background: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
 }
 
 .portfolio .portfolio-wrap .portfolio-links a + a {
@@ -701,6 +706,37 @@ section {
   opacity: 1;
   top: 0;
   /* bottom: 0; */
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-links a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-links a:nth-child(1) {
+  animation-delay: 0.1s;
+  animation: fadeInUp 0.4s ease-in-out 0.1s forwards;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-links a:nth-child(2) {
+  animation-delay: 0.2s;
+  animation: fadeInUp 0.4s ease-in-out 0.2s forwards;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-links a:nth-child(3) {
+  animation-delay: 0.3s;
+  animation: fadeInUp 0.4s ease-in-out 0.3s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1267,6 +1303,62 @@ canvas {
   object-fit: cover;
   width: 100%;
   height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-wrap {
+  position: relative;
+}
+
+.portfolio-wrap .img-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #149ddd 0%, #0d6efd 100%);
+  color: #fff;
+  font-size: 72px;
+  font-weight: bold;
+  z-index: 0;
+  border-radius: 6px;
+}
+
+.portfolio-wrap img.img-fluid-project.error + .img-fallback,
+.portfolio-wrap img.img-fluid-project[src=""] + .img-fallback,
+.portfolio-wrap img.img-fluid-project:not([src]) + .img-fallback {
+  display: flex;
+}
+
+.portfolio-wrap img.img-fluid-project.error {
+  opacity: 0;
+}
+
+@media (max-width: 991px) {
+  .portfolio .portfolio-wrap {
+    height: 300px;
+  }
+  
+  .portfolio-wrap .img-fallback {
+    height: 100%;
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .portfolio .portfolio-wrap {
+    height: 250px;
+  }
+  
+  .portfolio-wrap .img-fallback {
+    height: 100%;
+    font-size: 48px;
+  }
 }
 
 /* Ensure 3 cards per row on large screens */
