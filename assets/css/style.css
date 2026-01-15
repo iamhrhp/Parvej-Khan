@@ -621,7 +621,8 @@ section {
   margin-bottom: 10px;
   width: 100%;
   max-width: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   height: 400px;
 }
@@ -1225,6 +1226,9 @@ section {
 .portfolio-body {
   background: #fff;
   padding: 8px 10px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .portfolio-body h6 {
@@ -1299,13 +1303,13 @@ canvas {
 
 .img-fluid-project {
   max-width: 100%;
-  min-height: 140px !important;
+  height: 340px;
   object-fit: cover;
   width: 100%;
-  height: auto;
   display: block;
   position: relative;
   z-index: 1;
+  flex-shrink: 0;
 }
 
 .portfolio-wrap {
@@ -1317,7 +1321,7 @@ canvas {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 340px;
   display: none;
   align-items: center;
   justify-content: center;
@@ -1326,7 +1330,8 @@ canvas {
   font-size: 72px;
   font-weight: bold;
   z-index: 0;
-  border-radius: 6px;
+  border-radius: 6px 6px 0 0;
+  flex-shrink: 0;
 }
 
 .portfolio-wrap img.img-fluid-project.error + .img-fallback,
@@ -1344,8 +1349,12 @@ canvas {
     height: 300px;
   }
   
+  .img-fluid-project {
+    height: 250px;
+  }
+  
   .portfolio-wrap .img-fallback {
-    height: 100%;
+    height: 250px;
     font-size: 60px;
   }
 }
@@ -1355,8 +1364,12 @@ canvas {
     height: 250px;
   }
   
+  .img-fluid-project {
+    height: 200px;
+  }
+  
   .portfolio-wrap .img-fallback {
-    height: 100%;
+    height: 200px;
     font-size: 48px;
   }
 }
